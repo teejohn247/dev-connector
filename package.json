@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "babel app.js --out-dir build",
-    "start": "node --exec babel-node app.js --ignore client",
-    "start:dev":"nodemon --exec babel-node app.js --ignore client",
+    "start": "nodemon --exec babel-node app.js --ignore client",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client-install": "npm install --prefix client",
     "server": "nodemon app.js --ignore client",
@@ -40,10 +39,10 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.9",
+    "nodemon": "^1.19.0",
     "morgan": "^1.9.1",
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
   }
 }
