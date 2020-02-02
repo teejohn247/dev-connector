@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter,Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { addExperience } from '../../actions/profile';
 
@@ -25,7 +25,8 @@ const AddExperience = ({addExperience, history}) => {
           addExperience(formData, history)
       }
 return(
-  <section class="container">
+  <section class="container" style={{display:'grid', justifyContent:'center', margin:'20px',
+  margin:'20px', padding:'10px'}}>
   <h1 class="large text-primary">
    Add An Experience
   </h1>
@@ -67,7 +68,7 @@ return(
       ></textarea>
     </div>
     <input type="submit" class="btn btn-primary my-1" />
-    <a class="btn btn-light my-1" href="dashboard.html">Go Back</a>
+    <Link to='/dashboard' class="btn btn-light my-2" style={{color:'blue'}}>Go Back</Link>
   </form>
 </section>
 )

@@ -7,6 +7,8 @@ import Experience from './Experience';
 import Education from './Education';
 import Spinner from '../layout/spinner';
 import { getCurrentProfile } from '../../actions/profile';
+import bv from '../../images/bv.jpg'
+
 
 
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }}) => { 
@@ -17,15 +19,31 @@ console.log(profile)
     return loading && profile == null ? (
       <Spinner/ >
     ) : ( <Fragment>
+      <div class="dash">
+      <div class='pix'>
+      <div class='dp'>
+      <div class='overlay'>
+      <div class='h'> 
+<img src={user.avatar} alt='' />
+<span class = 'hidden'>
+<DashboardActions style />
+</span>
+{/* <button>Add friend</button> */}
+</div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class='das'>
+      <div className='shr'>
+      <div class='mid lef'>
+      <div class='edit'>
 <h1 class="large text-primary">
         Dashboard </h1>
       <p class="lead"><i class="fas fa-user"></i> Welcome {user && user.name} </p>
       {profile !== null ? (
         <Fragment>
        <DashboardActions />
-       <Experience expe = {profile.experience} />
-       <Education educ = {profile.education} />
-
        <div class="my-2">
             <button class="btn btn-danger">
                 <i class="fas fa-user-minus"></i>
@@ -36,10 +54,33 @@ console.log(profile)
       ) : (
         <Fragment>
           <p>You have not set up a profile, please add some info</p>
-          <Link to = '/create-profile' className = 'btn btn-primary my-1'>Create Profile</Link>
+          <Link to = '/create-profile' className = 'btn btn-primary'>Create Profile</Link>
         </Fragment>
       )}
-        
+      </div>
+      </div>
+      <div class='mid middl'>
+      <div class='opt'>
+      {profile !== null ? (
+        <Fragment>
+       <Experience expe = {profile.experience} />
+       <Education educ = {profile.education} />
+          </Fragment>
+      ) : (
+        <Fragment>
+          <p>You have not set up a profile, please add some info</p>
+          <Link to = '/create-profile' className = 'btn btn-primary'>Create Profile</Link>
+        </Fragment>
+      )}
+      
+      </div>
+
+      </div>
+      {/* <div class='ri'>
+        <h4>okay</h4>
+      </div> */}
+      </div>
+      </div>
     </Fragment>
     )
   }

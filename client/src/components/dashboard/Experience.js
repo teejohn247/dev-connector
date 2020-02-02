@@ -7,6 +7,7 @@ import { deleteExp } from '../../actions/profile'
 
 const Experience = ({ deleteExp, expe }) => {
     const experiences = expe.map(exp => (
+        // <div style={{display:'grid', justifyContent:'center'}}>
         <tr>
         <td>{exp.company}</td>
         <td className= 'hide-sm'>{exp.title}</td>
@@ -19,6 +20,7 @@ const Experience = ({ deleteExp, expe }) => {
             <button onClick={e => deleteExp(exp._id)} className="btn btn-danger" >Delete</button>
         </td>
         </tr>
+        // </div>
     )
     )
     return (
@@ -32,7 +34,7 @@ const Experience = ({ deleteExp, expe }) => {
                     <th className='hide-sm'>Years</th>
                 </tr>
             </thead>
-            <tbody>{experiences}</tbody>
+            <tbody style={{textAlign:'center'}}>{experiences}</tbody>
             </table>
         </Fragment>
     )

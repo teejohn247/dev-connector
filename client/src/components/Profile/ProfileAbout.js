@@ -8,22 +8,36 @@ import { getProfileById } from '../../actions/profile';
 
 const ProfileAbout = ({profile:{bio, skills, user:{name}}}) => {
     return(
-        <div class="profile-about bg-light p-2">
+
+
+<div style={{background:'white', display:'grid'
+        ,boxShadow:'0 4px 8px rgba(0,0,0,0.19)',borderRadius:'5px', alignItems:'center', width:'80%',margin:'0 auto', marginTop:'20px', padding:'10px',height:'auto' }}>
+          <div style={{display:'flex', padding:'-20px', 
+         }}>
         {bio && ( <Fragment>
-          <h2 class="text-primary">{name.trim().split(' ')}s Bio</h2>
-          <p>{bio}</p>
-          <div class="line" />
-          </Fragment>
+          <p style={{paddingRight:'20px'}}><strong>{name.trim().split('  ')}s</strong> Bio</p>
+          <p style={{marginLeft:'20px'}}>{bio}</p>
+        </Fragment>
         )}
-          <h2 class="text-primary">Skill Set</h2>
-          <div class="skills">
+        </div>
+        <div >
+        <p style={{borderTop:'1px solid rgb(234, 235, 236)',padding:'10px'
+          }}>
+       </p>
+       <div style={{display:'flex'}}>
+       <strong>Skill Set{` `}</strong>
            {skills.map((skill,index) => (
-               <div key ={index} className="p-1">
-               <i className="fas fa-check"></i>{skill}
+               <div key ={index} className="p-1" style={{marginLeft:'20px'}}>
+               {`  `}
+               <i className="fas fa-check"></i>{`${skill}  `}
                </div>
            ))}
           </div>
-        </div>
+          </div>
+         </div>
+
+          
+
     )
            }
 

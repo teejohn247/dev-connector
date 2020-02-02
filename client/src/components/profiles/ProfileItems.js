@@ -7,24 +7,30 @@ import Spinner from '../layout/spinner';
 const ProfileItem = ({profile: {user:{_id, name, avatar},status, company, location, skills}}) =>
 {
 return (
-    <div class="profile bg-light">
+    <div class="frnd">
+    <div class="non">
+    <div class= 'fl' style={{display:'flex'}}>
     <img
       class="round-img"
       src={avatar}
       alt=""
     />
-    <div>
-      <h2>{name}</h2>
-      <p>{status}{company && <span> at {company}</span>}</p>
+    <div class='th'>
+    <h2>{name}</h2>
+      <p>{status}{company && <span> at <br /> {company}</span>}</p>
+    </div>
+    </div> 
+    <div class='tx'>
       <p>{location && <span>{location}</span>}</p>
-      <Link to= {`/profile/${_id}`} class="btn btn-primary">View Profile</Link>
+      <Link to= {`/profile/${_id}`} class="view">View Profile</Link>
     </div>
 
-    <ul>
+    {/* <ul>
      {skills.slice(0,4).map((skill, index)=> (
          <li key = {index} className= "text-primary"><i className= "fas fa-check"></i>{skill}</li>
      ))}
-    </ul>
+    </ul> */}
+  </div>
   </div>
 )
 }

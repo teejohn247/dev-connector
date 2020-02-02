@@ -15,15 +15,27 @@ return (
 
     <Fragment>
         
-      <div class="post-form">
-        <div class="bg-primary p">
-          <h3>Comment Here...</h3>
-        </div>
-        <form class="form my-1" onSubmit = {e => {
+<div class="create-post" >
+        <div class="one vv" >
+<div >
+{/* <img src={} alt="" class="profile-photo-md" /> */}
+</div>
+        <form class="" onSubmit = {e => {
             e.preventDefault();
             addComment(postId, {text})
         }}>
-          <textarea
+        <textarea
+        name="text"
+        cols="65"
+        rows="6"
+        id="exampleTextarea"
+        placeholder="Write your thoughts..."
+        value = {text}
+        onChange = {e => setText(e.target.value)}
+        style={{width:'100%', height:'100px',padding:'10px',marginLeft:'-10px'}}
+        required
+      ></textarea>
+          {/* <textarea
             name="text"
             cols="30"
             rows="5"
@@ -31,9 +43,17 @@ return (
             value = {text}
             onChange = {e => setText(e.target.value)}
             required
-          ></textarea>
-          <input type="submit" class="btn btn-dark my-1" value="Submit" />
+          ></textarea> */}
+          <div style={{width:'130%', marginLeft:'auto', marginRight:'auto'}}>
+      {/* <ul class="list-inline">
+        <li><a href="#"><i class="fas fa-comment"></i></a></li>
+        </ul> */}
+      <input type="submit" class="btn btn-primary pull-right" value="Submit"
+      style={{marginLeft:'-10px'}} />
+      </div>
+          {/* <input type="submit" class="btn btn-dark my-1" value="Submit" /> */}
         </form>
+      </div>
       </div>
       </Fragment>
     )

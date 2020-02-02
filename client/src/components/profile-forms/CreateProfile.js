@@ -35,7 +35,7 @@ const CreateProfile = ({createProfile, history}) => {
 
 return(
 
-    <section class="container">
+    <section class="form-wrapper" >
     <h1 class="large text-primary">
       Create Your Profile
     </h1>
@@ -44,7 +44,8 @@ return(
       profile stand out
     </p>
     <small>* = required field</small>
-    <form class="form" onSubmit={e => onSubmit(e)}>
+    <form class="form-group" onSubmit={e => onSubmit(e)}> style={{display:'grid', justifyContent:'center', margin:'20px',
+  width:'50%'}}
       <div class="form-group">
         <select name="status" value={status} onChange={e => onChange(e)}>
           <option value="0">* Select Professional Status</option>

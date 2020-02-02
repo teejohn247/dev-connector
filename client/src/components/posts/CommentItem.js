@@ -11,30 +11,51 @@ const CommentItem = ({postId, comment:{ _id, text, name, user, avatar, date}, au
 
 return (
     <Fragment>
-         <div class="post bg-white p-1 my-1">
-    <div>
+         <div class="pos">
+         <div style={{display:'flex'}}>
+      <div class="bord" style={{width:'36vw',borderBottom:'1px solid #D8D6E4'}}>
     <Link to ={`/profile/${user}`}>
           <img
-            class="round-img"
+           class="profile-photo"
             src={avatar}
             alt=""
           />
-          <h4>{name}</h4>
         </Link>
+      <h4 style={{color:'#212529',fontSize:'13px'}}>{name}</h4>
   </div>
-  <div>
-    <p class="my-1">
-      {text}
-    </p>
-    {auth.isAuthenticated && 
+  </div>
+
+
+
+  <div class="kk" style={{width:'36vw',background:'white',padding:'10px',borderBottom:'1px solid #D8D6E4'}}>
+  <p class="link">
+        {/* <Link to ={`/post/${_id}`} style={{ textDecoration: 'none' }}>
+        <h4 class="bord">{name}</h4>
+        </Link> */}
+        </p>
+        <p class="" style={{color:'#888da8',fontSize:'13px', textAlign:'left',lineHeight:'20px'}}>
+        {"\n"}
+
+        {text}
+        </p>
+    
+      </div>
+      <div class="kk" style={{display:'flex',width:'36vw',background:'white',padding:'10px',
+    borderBottom:'1px solid #D8D6E4',padding:'10px'}}>
+         <p style={{width:'90%',marginTop:'-30px'}}>
+            Posted {date.split('T')[0]}
+        </p>
+        {auth.isAuthenticated && 
         auth.loading === false && 
         auth.user._id === user
         && (
-        <button onClick = {e => deleteComment(postId, _id)} type= "button" className ="btn btn-danger">
-        <i className= "fas fa-times" />
+          <span class="">
+        <button onClick = {e => deleteComment(postId, _id)} type= "button" class ="btn btn-danger del">
+        Delete
          </button>
+         </span>
         )}
-      </div>
+        </div>
       </div>
       </Fragment>
     )

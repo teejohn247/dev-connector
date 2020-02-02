@@ -1,6 +1,6 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter,Link  } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { createProfile } from '../../actions/profile';
 import { getCurrentProfile } from '../../actions/profile';
@@ -56,7 +56,8 @@ const EditProfile = ({profile: {profile, loading}, history, createProfile, getCu
 
 return(
 
-    <section class="container">
+    <section class="container" style={{display:'grid', justifyContent:'center', margin:'20px',
+    margin:'20px', padding:'10px'}}>
     <h1 class="large text-primary">
       Create Your Profile
     </h1>
@@ -64,7 +65,7 @@ return(
       <i class="fas fa-user"></i> Let's get some information to make your
       profile stand out
     </p>
-    <small>* = required field</small>
+    <p>* = required field</p>
     <form class="form" onSubmit={e => onSubmit(e)}>
       <div class="form-group">
         <select name="status" value={status} onChange={e => onChange(e)}>
@@ -78,33 +79,33 @@ return(
           <option value="Intern">Intern</option>
           <option value="Other">Other</option>
         </select>
-        <small class="form-text"
-          >Give us an idea of where you are at in your career</small
+        <p class="form-text"
+          >Give us an idea of where you are at in your career</p
         >
       </div>
       <div class="form-group">
         <input type="text" placeholder="Company" name="company" value={company} onChange={e => onChange(e)} />
-        <small class="form-text"
-          >Could be your own company or one you work for</small
+        <p class="form-text"
+          >Could be your own company or one you work for</p
         >
       </div>
       <div class="form-group">
         <input type="text" placeholder="Website" name="website" value={website} onChange={e => onChange(e)} />
-        <small class="form-text"
-          >Could be your own or a company website</small
+        <p class="form-text"
+          >Could be your own or a company website</p
         >
       </div>
       <div class="form-group">
         <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} />
-        <small class="form-text"
-          >City & state suggested (eg. Boston, MA)</small
+        <p class="form-text"
+          >City & state suggested (eg. Boston, MA)</p
         >
       </div>
       <div class="form-group">
         <input type="text" placeholder="* Skills" name="skills" value={skills} onChange={e => onChange(e)} />
-        <small class="form-text"
+        <p class="form-text"
           >Please use comma separated values (eg.
-          HTML,CSS,JavaScript,PHP)</small
+          HTML,CSS,JavaScript,PHP)</p
         >
       </div>
       <div class="form-group">
@@ -115,15 +116,15 @@ return(
           value={githubusername} 
           onChange={e => onChange(e)}
         />
-        <small class="form-text"
+        <p class="form-text"
           >If you want your latest repos and a Github link, include your
-          username</small
+          username</p
         >
       </div>
       <div class="form-group">
         <textarea placeholder="A short bio of yourself" name="bio" value={bio} 
           onChange={e => onChange(e)}></textarea>
-        <small class="form-text">Tell us a little about yourself</small>
+        <p class="form-text">Tell us a little about yourself</p>
       </div>
 
       <div class="my-2">
@@ -136,7 +137,7 @@ return(
 
       {displaySocialInputs && 
           <Fragment>
-           <div class="form-group social-input">
+           <div class="form-group social-input" >
         <i class="fab fa-twitter fa-2x"></i>
         <input type="text" placeholder="Twitter URL" name="twitter" value={twitter} 
           onChange={e => onChange(e)}/>
@@ -168,7 +169,7 @@ return(
           </Fragment>
       }
       <input type="submit" class="btn btn-primary my-1" />
-      <a class="btn btn-light my-1" href="dashboard.html">Go Back</a>
+      <Link to='/dashboard' class="btn btn-light my-2" style={{color:'blue'}}>Go Back</Link>
     </form>
   </section>
 )

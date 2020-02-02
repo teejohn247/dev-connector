@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import DashboardActions from './DashboardActions';
-import { deleteEdu } from '../../actions/profile'
+import { deleteEdu } from '../../actions/profile';
 
 const Education = ({ deleteEdu, educ }) => {
     const educations = educ.map(edu => (
@@ -32,7 +32,7 @@ const Education = ({ deleteEdu, educ }) => {
                     <th className='hide-sm'>Years</th>
                 </tr>
             </thead>
-            <tbody>{educations}</tbody>
+            <tbody style={{textAlign:'center'}}>{educations}</tbody>
             </table>
         </Fragment>
     )

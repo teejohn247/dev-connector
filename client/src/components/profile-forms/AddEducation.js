@@ -25,7 +25,8 @@ const AddEducation = ({addEducation, history}) => {
           addEducation(formData, history)
       }
 return(
-    <section class="container">
+  <section class="container" style={{display:'grid', justifyContent:'center', margin:'20px',
+  margin:'20px', padding:'10px'}}>
     <h1 class="large text-primary">
       Add Your Education
     </h1>
