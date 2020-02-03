@@ -42,9 +42,10 @@ useEffect (() => {
             <Navbar />
             <Route exact path="/" component={Profiles} />
             <div className="container">
-            <Alert />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+            <Alert />
+
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:id" component={Profile} />
               <Switch>

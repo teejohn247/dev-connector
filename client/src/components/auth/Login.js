@@ -7,6 +7,7 @@ import setAlert from '../layout/Alert';
 import face from '../../images/face-map.png';
 import appStore from  '../../images/app-store.png';
 import google from  '../../images/google-play.png';
+import Alert from '../layout/Alert';
 import iPhone from  '../../images/iPhone.png';
 
 
@@ -66,8 +67,11 @@ const Login = ({setAlert, login, isAuthenticated, user}) => {
             onChange={e => onChange(e)}
           />
         </div>
+        <Alert />
         <br />
-        <p class="signup-text">By signing In you agree to the terms and conditions</p>
+        <p class="" style={{marginBottom:'-10px', textAlign:'center',display:'grid', justifyContent:'center', color:'white'}}>
+        Don't have an account?<br /><br /> <Link  to='/register'>Register</Link>
+      </p>
         <br />
         <input type="submit" class="btn btn-primary" value="Login" />
       </form>

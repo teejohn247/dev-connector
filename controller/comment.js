@@ -19,7 +19,7 @@ const comment = async(req, res) => {
         post.comments.unshift(newComment);
 
         // Save
-        post.save().then(post => res.json(post));
+        post.save().then(post => res.json(post.comments));
       })
     } catch(err) {
         res.status(500).json({

@@ -7,6 +7,7 @@ import setAlert from '../layout/Alert';
 import face from '../../images/face-map.png';
 import appStore from  '../../images/app-store.png';
 import google from  '../../images/google-play.png';
+import Alert from '../layout/Alert';
 import iPhone from  '../../images/iPhone.png';
 
 
@@ -83,6 +84,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
            onChange={e => onChange(e)}
           />
         </div>
+        <Alert />
         <small class="form-text" style={{color:'white'}}>This site uses Gravatar so if you want a profile image, use a
             Gravatar email</small>
             <p class="form-text" style={{color:'white'}}>By signning up you agree to the terms</p>

@@ -12,14 +12,14 @@ const signin = async(req, res) => {
      if(!user){
          res.status(404).json({
              status: 404,
-             msg: 'user not found'
+             error: 'user not found'
          })
      }
-     const isMatch = bcrypt.compare(password, user.password);
+     const isMatch = await bcrypt.compare(password, user.password);
      if(!isMatch){
         res.status(404).json({
             status: 404,
-            msg: 'Invalid login credentials'
+            error: 'Invalid login credentials'
         })
      }
      const token = utils.encodeToken( user.id, user.name );

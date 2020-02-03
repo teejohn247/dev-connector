@@ -20,11 +20,10 @@ export const register = (formData) => async dispatch => {
         dispatch (setAlert('Account Created, you may login', 'success'));
             //  history.push('/login');
     } catch(err){
-        const errors = err.response.data.errors
+        console.log(err.response.data.error)
+        const errors = err.response.data.error
         if(errors){
-            errors.forEach(error => dispatch(
-                setAlert(error.msg, 'danger')
-        ))
+             dispatch(setAlert(errors, 'danger'))
         }
         dispatch({
             type:REGISTER_FAIL
@@ -47,12 +46,10 @@ export const login = ({ email, password }) => async dispatch => {
         })
         dispatch (loadUser())
     } catch(err){
-        const errors = err.response.data.errors
+        const errors = err.response.data.error
         if(errors){
-            errors.forEach(error => dispatch(
-                setAlert(error.msg, 'danger')
-        ))
-        }
+            dispatch(setAlert(errors, 'danger'))
+       }
         dispatch({
             type:LOGIN_FAIL
         })
@@ -70,12 +67,10 @@ export const loadUser = () => async dispatch => {
             payload: res.data
         })
     } catch(err){
-        const errors = err.response.data.errors
+        const errors = err.response.data.error
         if(errors){
-            errors.forEach(error => dispatch(
-                setAlert(error.msg, 'danger')
-        ))
-        }
+            dispatch(setAlert(errors, 'danger'))
+       }
         dispatch({
             type:AUTH_ERROR
         })

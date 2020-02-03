@@ -25,9 +25,9 @@ const deleteComment = async(req, res) => {
             // Splice comment out of array
             post.comments.splice(removeIndex, 1);
     
-            post.save().then(post => res.json(post));
+            post.save().then(() => res.json({ success: true }));
           })
-          .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
+          .catch(err => res.status(500).json({ server: 'Server Error' }));
       }
 }
 export default deleteComment;

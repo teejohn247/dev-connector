@@ -3,36 +3,31 @@ import User from '../model/User';
 import Post from '../model/Post';
 
 const unlike = async(req, res) => {
-    try{
-       const post = await Post.findById(req.params.id);
-       if(!post){
-        res.status(404).json({
-            status:404,
-            error:'post not found'
-        })
-        return;
-    }
-    const check = post.likes.some(like => like.user == req.payload.id);
-    if(!check){
-              res.status(404).json({
-                  status:404,
-                  error:'you cant unlike a post u havent liked' 
-              })
-        return;
-          }
-       
-          await Post.update({"_id": req.params.id}, { 
-            $pull: {"likes": {"user": req.payload.id}}
-          })   
+    Post.findById(req.params.id)
+            .then(post => {
+              
+              if (
+                post.likes.filter(like => like.user.toString() === req.payload.id)
+                  .length === 0
+              ) {
+                return res
+                  .status(400)
+                  .json({ notliked: 'You have not yet liked this post' });
+              }
+        // Get remove index
+        const removeIndex = post.likes
+        .map(item => item.user.toString())
+        .indexOf(req.payload.id);
 
-        res.status(200).json({
-            msg: 'deleted'
-         })
-    }catch(err){
-        res.status(500).json({
-            status:500,
-            err:'server error'
-        })
-    }
-}
+      // Splice out of array
+      post.likes.splice(removeIndex, 1);
+
+      // Save
+      post.save().then(post => res.json(post.likes));
+    })
+    .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
+};
+    
+
+      
 export default unlike;

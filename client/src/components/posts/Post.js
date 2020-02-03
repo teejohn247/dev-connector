@@ -44,10 +44,9 @@ return (
 
         </div>
         <div class='item-2'>
-<CommentForm postId = {post._id} />
 <SingleItem post = {post} postId = {post._id} />
+<CommentForm postId = {post._id} />
 <div className = "comments">
-{console.log(post.comments)}
 {post.comments.map(comment => (
     <CommentItem key ={comment._id} comment={comment} postId = {post._id} />
 ))}
